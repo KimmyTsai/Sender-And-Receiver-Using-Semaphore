@@ -128,6 +128,16 @@ int main(int argc, char **argv){
         return 1;
     }
 
+    /*
+    // Open semaphores (created/unlinked by sender when starts) 
+    sem_t *sem_sender = sem_open(SEM_SENDER_NAME, O_CREAT, 0666, 1);
+    sem_t *sem_receiver = sem_open(SEM_RECEIVER_NAME, O_CREAT, 0666, 0);
+    if (sem_sender == SEM_FAILED || sem_receiver == SEM_FAILED) {
+        perror("sem_open");
+        return 1;
+    }
+    */
+    
     struct timespec start, end; //計時
     double total_comm_time = 0.0;
 
