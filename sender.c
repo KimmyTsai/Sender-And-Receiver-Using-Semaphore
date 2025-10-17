@@ -141,6 +141,19 @@ int main(int argc, char **argv){
         return 1;
     }
 
+    /*
+    // Setup semaphores: unlink first to reset, then open 
+    sem_unlink(SEM_SENDER_NAME);
+    sem_unlink(SEM_RECEIVER_NAME);
+    
+    sem_t *sem_sender = sem_open(SEM_SENDER_NAME, O_CREAT, 0666, 1); // sender allowed first
+    sem_t *sem_receiver = sem_open(SEM_RECEIVER_NAME, O_CREAT, 0666, 0); //receiver blocked
+    if (sem_sender == SEM_FAILED || sem_receiver == SEM_FAILED) {
+        perror("sem_open");
+        return 1;
+    }
+    */
+
     FILE *fp = fopen(inputfile, "r");
     
     struct timespec start, end; //time count
